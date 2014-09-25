@@ -1,13 +1,32 @@
 {
   "name": "restify-crudify",
   "description": "A library to add CRUD routes with restify on mongodb",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:manuks/restify-crudify.git"
   },
-   "author": {
-    "name": "Manu K. Subramanian"
+  "dependencies": {
+    "mongojs": ">= 0.14.1"
   },
-  "license": "MIT"
+  "author": "Manu K. Subramanian",
+  "license":  [
+    {
+	  "type": "MIT",
+	  "url": "https://github.com/manuks/restify-crudify/blob/master/LICENSE-MIT"
+    }
+  ],  
+  "bugs": {
+    "url": "https://github.com/manuks/restify-crudify/issues"
+  },
+  "homepage": "https://github.com/manuks/restify-crudify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "restify",
+    "CRUD",
+    "mongodb"
+  ]
 }
