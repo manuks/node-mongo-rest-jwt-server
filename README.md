@@ -26,7 +26,9 @@ curl -F "email=test@emial.com" -F "pwd=testpwd" http://127.0.0.1:5000/v1/login
 use the token in header to access apis
 
 To insert a channel in channels resource 
+
 curl -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlc3RAZW1pYWwuY29tIiwiaWF0IjoxNDEyNDIyNTQ5LCJwb3N0ZWRPbiI6IjIwMTQtMTAtMDRUMTE6MzQ6NDAuMjg2WiIsIl9pZCI6IjU0MmZkYjUwNzQ3MTYwYjQ1ZmFjOWEzMyJ9.HV0vHjNSuMD1fhe5y6_xbtf0f2JXNAb64ksU1FHHseA" -F "name=NGC" http://127.0.0.1:5000/v1/channels
 
 To list all channel resources
+
 curl -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InRlc3RAZW1pYWwuY29tIiwiaWF0IjoxNDEyNDIyNTQ5LCJwb3N0ZWRPbiI6IjIwMTQtMTAtMDRUMTE6MzQ6NDAuMjg2WiIsIl9pZCI6IjU0MmZkYjUwNzQ3MTYwYjQ1ZmFjOWEzMyJ9.HV0vHjNSuMD1fhe5y6_xbtf0f2JXNAb64ksU1FHHseA" http://127.0.0.1:5000/v1/channels
