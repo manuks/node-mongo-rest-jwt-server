@@ -20,6 +20,7 @@ Create your first user using the api.
 curl -F "email=test@emial.com" -F "pwd=testpwd" -F "secret=put_your_secret_in_env_variable" http://127.0.0.1:5000/v1/users
 
 to login
+
 curl -F "email=test@emial.com" -F "pwd=testpwd" http://127.0.0.1:5000/v1/login
 
 
