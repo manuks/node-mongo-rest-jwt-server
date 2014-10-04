@@ -4,6 +4,7 @@ cd yourprojectname
 npm install
 
 setup your resources in the environment variable. See example below
+
 export REST_RESOURCES=channels,channel-programs
 
 node app.js
