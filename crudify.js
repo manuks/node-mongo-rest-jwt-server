@@ -206,11 +206,12 @@ module.exports = function(options) {
 		var resource = 'users',
 		dbResource = db.collection(resource),
 		validateUser = function(req, res, next) {
+			console.info(req.params.secret);
 			if(!req.headers || !req.headers.authorization) {
 				if (req.params.secret !== options.jwtSecret) {
 					return next(new restify.NotAuthorizedError("Invalid secret!"));
 				} else {
-					req.headers.authorization = jwt.sign(req.params, options.jwtSecret);
+					req.headers.authorization = 'Bearer '+jwt.sign(req.params, options.jwtSecret);
 				}
 			}
 			if(req.params.email && req.params.pwd){
