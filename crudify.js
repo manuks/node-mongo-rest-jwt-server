@@ -171,7 +171,7 @@ module.exports = function(options) {
 		server.del({path : path + '/' + resource + '/:resourceId' , version : version}, auth, deleteResourceById(dbResource));
 		server.put({path : path + '/' + resource + '/:resourceId' , version : version}, auth, updateResourceById(dbResource));
 	},
-	login = function(dbResource) {
+	authenticate = function(dbResource) {
 		return function(req, res , next){
 			dbResource.findOne({$and:[ {email:req.params.email}, {pwd:getPasswordHash(req.params.pwd)}]} , function(err , success){
 				console.info('Response success '+success);
@@ -188,16 +188,18 @@ module.exports = function(options) {
 			});
 		};
 	},
-	logout = function() {
+	/*logout = function() {
 		return function(req, res , next){
+			//todo: impliment logout
 			return next();
 		};
 	},
 	checkSession = function() {
 		return function(req, res , next){
+			res.send(204);
 			return next();
 		};
-	},
+	},*/
 	getPasswordHash = function(p) {
 		return crypto.createHash('md5').update(p+options.jwtSecret).digest('hex');
 	},
@@ -241,9 +243,9 @@ module.exports = function(options) {
 		server.del({path : path + '/' + resource + '/:resourceId' , version : version}, auth, deleteResourceById(dbResource));
 		server.put({path : path + '/' + resource + '/:resourceId' , version : version}, auth, updateResourceById(dbResource));
 		
-		server.post({path : path + '/login' , version: version}, login(dbResource));
-		server.post({path : path + '/logout' , version: version}, validate, logout(dbResource));
-		server.post({path : path + '/checksession' , version: version}, validate, checkSession(dbResource));
+		server.post({path : path + '/authenticate' , version: version}, authenticate(dbResource));
+		//server.post({path : path + '/logout' , version: version}, validate, logout(dbResource));
+		//server.post({path : path + '/checksession' , version: version}, auth, checkSession(dbResource));
 	}();
 	
 	return addResource;

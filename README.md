@@ -19,9 +19,9 @@ Create your first user using the api.
 
 curl -F "email=test@emial.com" -F "pwd=testpwd" -F "secret=put_your_secret_in_env_variable" http://127.0.0.1:5000/v1/users
 
-to login
+to get authorization token
 
-curl -F "email=test@emial.com" -F "pwd=testpwd" http://127.0.0.1:5000/v1/login
+curl -F "email=test@emial.com" -F "pwd=testpwd" http://127.0.0.1:5000/v1/authenticate
 
 
 use the token in header to access apis
